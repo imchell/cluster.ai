@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { AppShell, Burger, Header, MediaQuery, Navbar, Text, useMantineTheme } from '@mantine/core';
+import { PageSwitcher } from './components/PageSwitcher';
+import { Display } from './components/FileDisplay';
 
 export default function HomePage() {
   const [opened, setOpened] = useState(false);
@@ -10,8 +12,8 @@ export default function HomePage() {
       navbarOffsetBreakpoint="sm"
       fixed
       navbar={
-        <Navbar padding="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 300, lg: 400 }}>
-          <Text>pages</Text>
+        <Navbar padding="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 300, lg: 300 }}>
+          <PageSwitcher />
         </Navbar>
       }
       header={
@@ -31,7 +33,7 @@ export default function HomePage() {
         </Header>
       }
     >
-      <Text>App</Text>
+      <Display />
     </AppShell>
   );
 }
