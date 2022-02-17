@@ -1,22 +1,37 @@
-import { Title, Text, Anchor } from '@mantine/core';
+import { useState } from 'react';
+import { AppShell, Burger, Header, MediaQuery, Navbar, Text, useMantineTheme } from '@mantine/core';
 
 export default function HomePage() {
+  const [opened, setOpened] = useState(false);
+  const theme = useMantineTheme();
+
   return (
-    <>
-      <Title sx={{ fontSize: 100, fontWeight: 900, letterSpacing: -2 }} align="center" mt={100}>
-        Welcome to{' '}
-        <Text inherit variant="gradient" component="span">
-          Mantine
-        </Text>
-      </Title>
-      <Text color="dimmed" align="center" size="lg" sx={{ maxWidth: 580 }} mx="auto" mt="xl">
-        This starter Next.js projects includes a minimal setup for server side rendering, if you
-        want to learn more on Mantine + Next.js integration follow{' '}
-        <Anchor href="https://mantine.dev/theming/next/" size="lg">
-          this guide
-        </Anchor>
-        . To get started edit index.tsx file.
-      </Text>
-    </>
+    <AppShell
+      navbarOffsetBreakpoint="sm"
+      fixed
+      navbar={
+        <Navbar padding="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 300, lg: 400 }}>
+          <Text>pages</Text>
+        </Navbar>
+      }
+      header={
+        <Header height={70} padding="md">
+          <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+            <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+              <Burger
+                opened={opened}
+                onClick={() => setOpened((o) => !o)}
+                size="sm"
+                color={theme.colors.gray[6]}
+                mr="xl"
+              />
+            </MediaQuery>
+            <Text>cluster.ai</Text>
+          </div>
+        </Header>
+      }
+    >
+      <Text>App</Text>
+    </AppShell>
   );
 }
