@@ -12,12 +12,18 @@ export default function HomePage() {
       navbarOffsetBreakpoint="sm"
       fixed
       navbar={
-        <Navbar padding="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 300, lg: 300 }}>
+        <Navbar
+          padding="md"
+          hiddenBreakpoint="sm"
+          hidden={!opened}
+          width={{ sm: 300, lg: 300 }}
+          style={{ border: '0' }}
+        >
           <PageSwitcher />
         </Navbar>
       }
       header={
-        <Header height={70} padding="md">
+        <Header height={70} padding="md" style={{ border: '0' }}>
           <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
             <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
               <Burger

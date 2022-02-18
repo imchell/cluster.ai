@@ -1,12 +1,19 @@
 import { MIME_TYPES, FullScreenDropzone } from '@mantine/dropzone';
 import { Group, Text } from '@mantine/core';
+import { useState } from 'react';
+import { Gallery } from './Gallery';
 
 export function Display() {
+  const [dropped, setDropped] = useState(false);
+  const [images, setImages] = useState([] as File[]);
+
   return (
     <>
       <FullScreenDropzone
         accept={[MIME_TYPES.jpeg, MIME_TYPES.png]}
         onDrop={(files) => {
+          setDropped(true);
+          setImages(files);
           console.log(files);
         }}
       >
@@ -23,7 +30,7 @@ export function Display() {
           </Group>
         )}
       </FullScreenDropzone>
-      <Text>Drop File Here.</Text>
+      {dropped ? <Gallery files={images} /> : <Text>Drop File Here.</Text>}
     </>
   );
 }
