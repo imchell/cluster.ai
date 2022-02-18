@@ -1,12 +1,17 @@
 import { Grid, Image, Text } from '@mantine/core';
 import { useRef } from 'react';
+import { ImageCard } from './ImageCard';
+import { filesAtom } from '../store/data';
+import { useAtom } from 'jotai';
 
-export function Gallery(props: { files: File[] }) {
+export function Gallery() {
+  const [files, setFiles] = useAtom(filesAtom);
+  // setFiles(props.files);
   return (
     <Grid>
-      {props.files.map((file) => (
+      {files.map((file) => (
         <Grid.Col span={2}>
-          <Image src={URL.createObjectURL(file)} />
+          <ImageCard url={URL.createObjectURL(file)} />
         </Grid.Col>
       ))}
     </Grid>
