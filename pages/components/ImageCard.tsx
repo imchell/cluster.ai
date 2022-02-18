@@ -1,10 +1,11 @@
-import { Card, Image, Select } from '@mantine/core';
+import { Button, Card, Image, Select } from '@mantine/core';
 import { useState } from 'react';
-import { selectionsAtom } from '../store/data';
+import { selectionsAtom, typesAtom } from '../store/data';
 import { useAtom } from 'jotai';
 
-export function ImageCard(props: { url: string }) {
+export function ImageCard(props: { url: string; index: number }) {
   const [data, setData] = useAtom(selectionsAtom);
+  const [types, setTypes] = useAtom(typesAtom);
   return (
     <Card>
       <Card.Section>
@@ -18,7 +19,14 @@ export function ImageCard(props: { url: string }) {
         creatable
         getCreateLabel={(query) => `+ Create ${query}`}
         onCreate={(query) => setData((current) => [...current, query])}
+        onChange={(value) => {
+          let newTypes = types;
+          newTypes[props.index] = value as string;
+          console.log(newTypes);
+          setTypes(newTypes);
+        }}
       />
+      <Button>Remove</Button>
     </Card>
   );
 }

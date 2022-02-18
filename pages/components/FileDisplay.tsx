@@ -15,7 +15,6 @@ export function Display() {
         onDrop={(files) => {
           setDropped(true);
           setFiles(files);
-          console.log(files);
         }}
       >
         {(status) => (
