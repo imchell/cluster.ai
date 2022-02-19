@@ -21,9 +21,9 @@ export function Gallery() {
 
   return (
     <Grid>
-      {files.map((file, index) => (
+      {fileURLs.map((url, index) => (
         <Grid.Col span={2} key={index}>
-          <ImageCard url={URL.createObjectURL(file)} index={index} />
+          <ImageCard url={url} index={index} />
         </Grid.Col>
       ))}
     </Grid>
