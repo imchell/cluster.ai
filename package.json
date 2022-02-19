@@ -20,12 +20,16 @@
     "@mantine/notifications": "3.6.7",
     "@mantine/prism": "3.6.7",
     "@modulz/radix-icons": "^4.0.0",
+    "@tensorflow-models/mobilenet": "^2.1.0",
+    "@tensorflow/tfjs": "^3.13.0",
     "dayjs": "^1.10.7",
     "jotai": "^1.6.0",
+    "ml-classifier": "^0.5.1",
     "next": "12.0.7",
     "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sharp": "^0.30.1"
   },
   "devDependencies": {
     "@mantine/eslint-config": "3.6.7",

@@ -1,15 +1,22 @@
 import { Grid, Image, Text } from '@mantine/core';
 import { useRef, useEffect } from 'react';
 import { ImageCard } from './ImageCard';
-import { filesAtom, typesAtom } from '../store/data';
+import { filesAtom, typesAtom, fileURLsAtom } from '../store/data';
 import { useAtom } from 'jotai';
 
 export function Gallery() {
   const [files, setFiles] = useAtom(filesAtom);
   const [types, setTypes] = useAtom(typesAtom);
+  const [fileURLs, setFileURLs] = useAtom(fileURLsAtom);
 
   useEffect(() => {
     setTypes(Array(files.length).fill('undecided'));
+    setFileURLs(Array(files.length).fill(''));
+    let newFileURLs = fileURLs;
+    files.map((file, index) => {
+      newFileURLs[index] = URL.createObjectURL(file);
+    });
+    setFileURLs(newFileURLs);
   }, [files]);
 
   return (
