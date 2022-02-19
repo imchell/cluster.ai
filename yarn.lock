@@ -4745,11 +4745,6 @@ mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"
   integrity sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==
 
-ml-classifier@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/ml-classifier/-/ml-classifier-0.5.1.tgz#28e79e0bd47a05647caf818aa892295eaf547322"
-  integrity sha512-pFr+aq+7PiOKXvEQfs0+Z/0hk+7d6q7dMnd0NO2Z4X7UljH1Uzk/KuRL1TCkp9ynmDBqQuWk+DZ3fCP0vQqqFw==
-
 mrmime@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/mrmime/-/mrmime-1.0.0.tgz#14d387f0585a5233d291baba339b063752a2398b"

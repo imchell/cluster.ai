@@ -24,7 +24,6 @@
     "@tensorflow/tfjs": "^3.13.0",
     "dayjs": "^1.10.7",
     "jotai": "^1.6.0",
-    "ml-classifier": "^0.5.1",
     "next": "12.0.7",
     "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
