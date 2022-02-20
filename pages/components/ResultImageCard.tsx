@@ -1,8 +1,8 @@
 import { Card, Image, Center, Text, useMantineTheme, Space } from '@mantine/core';
 import { useAtom } from 'jotai';
-import { undecidedImgsURLsAtom, classifiedAtom } from '../store/data';
+import { undecidedImgsURLsAtom, classifiedAtom } from '../../store/data';
 
-export function ResultImageCard(props: { url: string; label: string }) {
+export default function ResultImageCard(props: { url: string; label: string }) {
   const theme = useMantineTheme();
 
   return (

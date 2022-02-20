@@ -2,7 +2,7 @@ const tf = require('@tensorflow/tfjs');
 const mobilenetModule = require('@tensorflow-models/mobilenet');
 const knnClassifier = require('@tensorflow-models/knn-classifier');
 
-export const classification = async function (
+export default async function classification(
   fileURLs,
   types,
   setClassifieds,
@@ -47,7 +47,7 @@ export const classification = async function (
   setClassifieds(classifiedResult);
   setDecidedImgsURLs(decidedImgsURLs);
   setUndecidedImgsURLs(undecidedImgsURLs);
-};
+}
 
 const generateImgs = function (fileURLs) {
   let imgs = [];

@@ -1,9 +1,9 @@
 import { Grid } from '@mantine/core';
-import { ResultImageCard } from './ResultImageCard';
+import ResultImageCard from './ResultImageCard';
 import { useAtom } from 'jotai';
-import { undecidedImgsURLsAtom, classifiedAtom } from '../store/data';
+import { undecidedImgsURLsAtom, classifiedAtom } from '../../store/data';
 
-export function PredictionGallery() {
+export default function PredictionGallery() {
   const [undecidedImgsURLs, setUndecidedImgsURLs] = useAtom(undecidedImgsURLsAtom);
   const [classified, setClassified] = useAtom(classifiedAtom);
 

@@ -1,9 +1,9 @@
 import { Button, Card, Image, Select, Space, Center, useMantineTheme } from '@mantine/core';
 import { useState, useRef, useEffect } from 'react';
-import { selectionsAtom, typesAtom } from '../store/data';
+import { selectionsAtom, typesAtom } from '../../store/data';
 import { useAtom } from 'jotai';
 
-export function ImageCard(props: { url: string; index: number }) {
+export default function ImageCard(props: { url: string; index: number }) {
   const [data, setData] = useAtom(selectionsAtom);
   const [types, setTypes] = useAtom(typesAtom);
   const imageRef = useRef() as React.ForwardedRef<HTMLImageElement>;

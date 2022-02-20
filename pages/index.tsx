@@ -9,8 +9,8 @@ import {
   useMantineTheme,
   Image,
 } from '@mantine/core';
-import { PageSwitcher } from './components/PageSwitcher';
-import { Display } from './components/FileDisplay';
+import PageSwitcher from './components/PageSwitcher';
+import Display from './components/FileDisplay';
 
 export default function HomePage() {
   const [opened, setOpened] = useState(false);

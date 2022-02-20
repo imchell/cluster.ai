@@ -9,7 +9,7 @@ import {
   Transition,
   Center,
 } from '@mantine/core';
-import { classification } from '../model/net';
+import classification from '../../model/net';
 import {
   fileURLsAtom,
   typesAtom,
@@ -17,7 +17,7 @@ import {
   decidedImgsURLsAtom,
   undecidedImgsURLsAtom,
   taskFinishedAtom,
-} from '../store/data';
+} from '../../store/data';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 
@@ -28,7 +28,7 @@ function handleClassificationResult(
   setClassifieds(result);
 }
 
-export function PageSwitcher() {
+export default function PageSwitcher() {
   const [fileURLs, setFileURLs] = useAtom(fileURLsAtom);
   const [types, setTypes] = useAtom(typesAtom);
   const [classifieds, setClassifieds] = useAtom(classifiedAtom);

@@ -1,6 +1,6 @@
 import { Card, Text, useMantineTheme, Center, Image, List, Space, Paper } from '@mantine/core';
 
-export function Guide() {
+export default function Guide() {
   const theme = useMantineTheme();
 
   return (

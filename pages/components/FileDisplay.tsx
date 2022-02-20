@@ -1,13 +1,13 @@
 import { MIME_TYPES, FullScreenDropzone } from '@mantine/dropzone';
 import { Group, Text } from '@mantine/core';
 import { useEffect, useState } from 'react';
-import { Gallery } from './Gallery';
-import { filesAtom, taskFinishedAtom } from '../store/data';
+import Gallery from './Gallery';
+import { filesAtom, taskFinishedAtom } from '../../store/data';
 import { useAtom } from 'jotai';
-import { Guide } from './Guide';
-import { PredictionGallery } from './PredictionGallery';
+import Guide from './Guide';
+import PredictionGallery from './PredictionGallery';
 
-export function Display() {
+export default function Display() {
   const [dropped, setDropped] = useState(false);
   const [files, setFiles] = useAtom(filesAtom);
   const [taskFinished, setTaskFinished] = useAtom(taskFinishedAtom);

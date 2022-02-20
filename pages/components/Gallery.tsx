@@ -1,10 +1,10 @@
 import { Grid, Image, Text } from '@mantine/core';
 import { useRef, useEffect } from 'react';
-import { ImageCard } from './ImageCard';
-import { filesAtom, typesAtom, fileURLsAtom } from '../store/data';
+import ImageCard from './ImageCard';
+import { filesAtom, typesAtom, fileURLsAtom } from '../../store/data';
 import { useAtom } from 'jotai';
 
-export function Gallery() {
+export default function Gallery() {
   const [files, setFiles] = useAtom(filesAtom);
   const [types, setTypes] = useAtom(typesAtom);
   const [fileURLs, setFileURLs] = useAtom(fileURLsAtom);
