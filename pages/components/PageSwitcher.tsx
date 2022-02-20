@@ -1,4 +1,4 @@
-import { Navbar, Text, Button, Container, Space } from '@mantine/core';
+import { Navbar, Text, Button, Container, Space, Image } from '@mantine/core';
 import { classification } from '../model/net';
 import {
   fileURLsAtom,
@@ -25,6 +25,7 @@ export function PageSwitcher() {
 
   return (
     <>
+      <Image src="/logo/logo.svg" height={60} />
       <Button
         onClick={() =>
           classification(fileURLs, types, setClassifieds, setUndecidedImgsURLs, setDecidedImgsURLs)
