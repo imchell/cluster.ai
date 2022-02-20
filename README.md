@@ -1,6 +1,6 @@
 # cluster.ai
 
-_cluster.ai_ is an out-of-the-box machine learning app for solving simple machine learning problems.
+_cluster.ai_ is an out-of-the-box machine learning app for solving simple machine learning tasks.
 
 ## How to use
 
