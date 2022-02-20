@@ -4,3 +4,6 @@ export const selectionsAtom = atom([] as string[]);
 export const filesAtom = atom([] as File[]);
 export const typesAtom = atom([] as string[]); // Labels
 export const fileURLsAtom = atom([] as string[]); // Image URLs
+export const classifiedAtom = atom([] as object[]);
+export const undecidedImgsURLsAtom = atom([] as string[]);
+export const decidedImgsURLsAtom = atom([] as string[]);

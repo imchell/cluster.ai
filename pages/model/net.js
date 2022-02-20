@@ -2,35 +2,51 @@ const tf = require('@tensorflow/tfjs');
 const mobilenetModule = require('@tensorflow-models/mobilenet');
 const knnClassifier = require('@tensorflow-models/knn-classifier');
 
-export const classification = async function (fileURLs, types) {
+export const classification = async function (
+  fileURLs,
+  types,
+  setClassifieds,
+  setUndecidedImgsURLs,
+  setDecidedImgsURLs
+) {
   let imgs = generateImgs(fileURLs);
 
   const classifier = knnClassifier.create();
   const mobilenet = await mobilenetModule.load();
 
-  console.log('start');
-  console.log(imgs);
-
   let undecidedImgs = [];
+  let undecidedImgsURLs = [];
+  let decidedImgsURLs = [];
 
   for (const i = 0; i < imgs.length; i++) {
     if (types[i] === 'undecided') {
       undecidedImgs.push(imgs[i]);
+      undecidedImgsURLs.push(fileURLs[i]);
     } else {
+      decidedImgsURLs.push(fileURLs[i]);
       const logits = mobilenet.infer(imgs[i], true);
       classifier.addExample(logits, types[i]);
     }
   }
 
-  console.log('success');
-  console.log('predict');
+  let classifiedResult = [];
 
   for (const i = 0; i < undecidedImgs.length; i++) {
     const x = tf.browser.fromPixels(undecidedImgs[i]);
     const xlogits = mobilenet.infer(x, true);
-    console.log('Predictions:');
-    console.log(classifier.predictClass(xlogits));
+    classifier.predictClass(xlogits).then((result) => {
+      classifiedResult.push({ ...result });
+    });
   }
+
+  for (let i = 0; i < classifiedResult.length; i++) {
+    classifiedResult[i]['url'] = undecidedImgsURLs[i];
+  }
+
+  console.log(classifiedResult);
+  setClassifieds(classifiedResult);
+  setDecidedImgsURLs(decidedImgsURLs);
+  setUndecidedImgsURLs(undecidedImgsURLs);
 };
 
 const generateImgs = function (fileURLs) {
