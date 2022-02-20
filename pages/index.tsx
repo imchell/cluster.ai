@@ -20,6 +20,9 @@ export default function HomePage() {
     <AppShell
       navbarOffsetBreakpoint="sm"
       fixed
+      style={{
+        backgroundColor: theme.colors.operations[0],
+      }}
       navbar={
         <Navbar
           padding="md"

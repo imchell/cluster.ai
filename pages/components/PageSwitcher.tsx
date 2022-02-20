@@ -1,4 +1,14 @@
-import { Navbar, Text, Button, Container, Space, Image } from '@mantine/core';
+import {
+  Navbar,
+  Text,
+  Button,
+  Container,
+  Space,
+  Image,
+  useMantineTheme,
+  Transition,
+  Center,
+} from '@mantine/core';
 import { classification } from '../model/net';
 import {
   fileURLsAtom,
@@ -8,6 +18,7 @@ import {
   undecidedImgsURLsAtom,
 } from '../store/data';
 import { useAtom } from 'jotai';
+import { useEffect } from 'react';
 
 function handleClassificationResult(
   result: { classIndex: number; confidence: object; label: string; url: string },
@@ -23,18 +34,72 @@ export function PageSwitcher() {
   const [undecidedImgsURLs, setUndecidedImgsURLs] = useAtom(undecidedImgsURLsAtom);
   const [decidedImgsURLs, setDecidedImgsURLs] = useAtom(decidedImgsURLsAtom);
 
+  // const theme = useMantineTheme();
+
   return (
     <>
       <Image src="/logo/logo.svg" height={60} />
-      <Button
-        onClick={() =>
-          classification(fileURLs, types, setClassifieds, setUndecidedImgsURLs, setDecidedImgsURLs)
-        }
-      >
-        Train
-      </Button>
+      <Space h={40} />
+      <Center>
+        <Button
+          onClick={() =>
+            classification(
+              fileURLs,
+              types,
+              setClassifieds,
+              setUndecidedImgsURLs,
+              setDecidedImgsURLs
+            )
+          }
+          radius="md"
+          size="md"
+          styles={(theme) => ({
+            root: {
+              backgroundColor: theme.colors.operations[3],
+              height: '40px',
+              top: '0px',
+              '&:hover': {
+                backgroundColor: theme.colors.operations[2],
+                top: '-6px',
+              },
+              '&:active': {
+                backgroundColor: theme.colors.operations[4],
+                top: '0px',
+              },
+              width: '90%',
+              transition: '0.2s',
+            },
+          })}
+        >
+          train
+        </Button>
+      </Center>
       <Space h="md" />
-      <Button>Predict</Button>
+      <Center>
+        <Button
+          radius="md"
+          size="md"
+          styles={(theme) => ({
+            root: {
+              backgroundColor: theme.colors.operations[3],
+              height: '40px',
+              top: '0px',
+              '&:hover': {
+                backgroundColor: theme.colors.operations[2],
+                top: '-6px',
+              },
+              '&:active': {
+                backgroundColor: theme.colors.operations[4],
+                top: '0px',
+              },
+              width: '90%',
+              transition: '0.2s',
+            },
+          })}
+        >
+          predict
+        </Button>
+      </Center>
     </>
   );
 }

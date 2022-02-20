@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Gallery } from './Gallery';
 import { filesAtom } from '../store/data';
 import { useAtom } from 'jotai';
+import { Guide } from './Guide';
 
 export function Display() {
   const [dropped, setDropped] = useState(false);
@@ -30,7 +31,7 @@ export function Display() {
           </Group>
         )}
       </FullScreenDropzone>
-      {dropped ? <Gallery /> : <Text>Drop File Here.</Text>}
+      {dropped ? <Gallery /> : <Guide />}
     </>
   );
 }
