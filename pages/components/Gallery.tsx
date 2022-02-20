@@ -22,7 +22,7 @@ export function Gallery() {
   return (
     <Grid>
       {fileURLs.map((url, index) => (
-        <Grid.Col span={2} key={index}>
+        <Grid.Col lg={2} md={3} sm={4} xs={6} key={index}>
           <ImageCard url={url} index={index} />
         </Grid.Col>
       ))}
