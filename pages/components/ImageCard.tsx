@@ -15,10 +15,11 @@ export function ImageCard(props: { url: string; index: number }) {
   const theme = useMantineTheme();
 
   return (
-    <Card style={{ height: '220px' }} radius="md">
+    <Card radius="md" style={{ backgroundColor: theme.colors.gray[0] }}>
       <Card.Section>
-        <Image src={props.url} imageRef={imageRef} height={220} />
+        <Image src={props.url} imageRef={imageRef} height={180} />
       </Card.Section>
+      <Space h={'sm'} />
       <Center>
         <Select
           radius="md"
@@ -39,9 +40,6 @@ export function ImageCard(props: { url: string; index: number }) {
             setTypes(newTypes);
           }}
           sx={(theme) => ({
-            position: 'absolute',
-            top: '175px',
-            width: '90%',
             color: theme.colors.operations[3],
           })}
           styles={{

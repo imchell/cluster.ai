@@ -16,6 +16,7 @@ import {
   classifiedAtom,
   decidedImgsURLsAtom,
   undecidedImgsURLsAtom,
+  taskFinishedAtom,
 } from '../store/data';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
@@ -33,6 +34,7 @@ export function PageSwitcher() {
   const [classifieds, setClassifieds] = useAtom(classifiedAtom);
   const [undecidedImgsURLs, setUndecidedImgsURLs] = useAtom(undecidedImgsURLsAtom);
   const [decidedImgsURLs, setDecidedImgsURLs] = useAtom(decidedImgsURLsAtom);
+  const [taskFinished, setTaskFinished] = useAtom(taskFinishedAtom);
 
   // const theme = useMantineTheme();
 
@@ -77,6 +79,7 @@ export function PageSwitcher() {
       <Space h="md" />
       <Center>
         <Button
+          onClick={() => setTaskFinished(true)}
           radius="md"
           size="md"
           styles={(theme) => ({
@@ -98,6 +101,33 @@ export function PageSwitcher() {
           })}
         >
           predict
+        </Button>
+      </Center>
+      <Space h="md" />
+      <Center>
+        <Button
+          onClick={() => setTaskFinished(false)}
+          radius="md"
+          size="md"
+          styles={(theme) => ({
+            root: {
+              backgroundColor: theme.colors.operations[3],
+              height: '40px',
+              top: '0px',
+              '&:hover': {
+                backgroundColor: theme.colors.operations[2],
+                top: '-6px',
+              },
+              '&:active': {
+                backgroundColor: theme.colors.operations[4],
+                top: '0px',
+              },
+              width: '90%',
+              transition: '0.2s',
+            },
+          })}
+        >
+          clear
         </Button>
       </Center>
     </>
