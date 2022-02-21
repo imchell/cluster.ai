@@ -8,7 +8,9 @@ export default async function classification(
   setClassifieds,
   setUndecidedImgsURLs,
   setDecidedImgsURLs,
-  setPending
+  setPending,
+  setTaskFinished,
+  setDecidedImgsTypes
 ) {
   setPending(true);
   let imgs = generateImgs(fileURLs);
@@ -19,6 +21,7 @@ export default async function classification(
   let undecidedImgs = [];
   let undecidedImgsURLs = [];
   let decidedImgsURLs = [];
+  let decidedTypes = [];
 
   for (const i = 0; i < imgs.length; i++) {
     if (types[i] === 'undecided') {
@@ -26,6 +29,7 @@ export default async function classification(
       undecidedImgsURLs.push(fileURLs[i]);
     } else {
       decidedImgsURLs.push(fileURLs[i]);
+      decidedTypes.push(types[i]);
       const logits = mobilenet.infer(imgs[i], true);
       classifier.addExample(logits, types[i]);
     }
@@ -48,9 +52,11 @@ export default async function classification(
       console.log(classifiedResult);
       setClassifieds(classifiedResult);
       setDecidedImgsURLs(decidedImgsURLs);
+      setDecidedImgsTypes(decidedTypes);
       setUndecidedImgsURLs(undecidedImgsURLs);
       console.log('success');
       setPending(false);
+      setTaskFinished(true);
     })
     .catch((e) => {
       console.log(e);

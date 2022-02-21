@@ -18,6 +18,7 @@ import {
   undecidedImgsURLsAtom,
   taskFinishedAtom,
   pendingAtom,
+  decidedImgsTypesAtom,
 } from '../../store/data';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
@@ -37,6 +38,7 @@ export default function PageSwitcher() {
   const [decidedImgsURLs, setDecidedImgsURLs] = useAtom(decidedImgsURLsAtom);
   const [taskFinished, setTaskFinished] = useAtom(taskFinishedAtom);
   const [pending, setPending] = useAtom(pendingAtom);
+  const [decidedImgsTypes, setDecidedImgsTypes] = useAtom(decidedImgsTypesAtom);
 
   // const theme = useMantineTheme();
 
@@ -53,36 +55,11 @@ export default function PageSwitcher() {
               setClassifieds,
               setUndecidedImgsURLs,
               setDecidedImgsURLs,
-              setPending
+              setPending,
+              setTaskFinished,
+              setDecidedImgsTypes
             )
           }
-          radius="md"
-          size="md"
-          styles={(theme) => ({
-            root: {
-              backgroundColor: theme.colors.operations[3],
-              height: '40px',
-              top: '0px',
-              '&:hover': {
-                backgroundColor: theme.colors.operations[2],
-                top: '-6px',
-              },
-              '&:active': {
-                backgroundColor: theme.colors.operations[4],
-                top: '0px',
-              },
-              width: '90%',
-              transition: '0.2s',
-            },
-          })}
-        >
-          train
-        </Button>
-      </Center>
-      <Space h="md" />
-      <Center>
-        <Button
-          onClick={() => setTaskFinished(true)}
           radius="md"
           size="md"
           styles={(theme) => ({
