@@ -31,19 +31,28 @@ export default async function classification(
   }
 
   let classifiedResult = [];
+  let classifierPromise = [];
 
   for (const i = 0; i < undecidedImgs.length; i++) {
     const x = tf.browser.fromPixels(undecidedImgs[i]);
     const xlogits = mobilenet.infer(x, true);
-    classifier.predictClass(xlogits).then((result) => {
-      classifiedResult.push({ ...result });
-    });
+    classifierPromise.push(classifier.predictClass(xlogits));
   }
 
-  console.log(classifiedResult);
-  setClassifieds(classifiedResult);
-  setDecidedImgsURLs(decidedImgsURLs);
-  setUndecidedImgsURLs(undecidedImgsURLs);
+  Promise.all(classifierPromise)
+    .then((results) => {
+      for (const result of results) {
+        classifiedResult.push({ ...result });
+      }
+      console.log(classifiedResult);
+      setClassifieds(classifiedResult);
+      setDecidedImgsURLs(decidedImgsURLs);
+      setUndecidedImgsURLs(undecidedImgsURLs);
+      console.log('success');
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 }
 
 const generateImgs = function (fileURLs) {
