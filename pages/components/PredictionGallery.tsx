@@ -2,6 +2,7 @@ import { Grid } from '@mantine/core';
 import ResultImageCard from './ResultImageCard';
 import { useAtom } from 'jotai';
 import { undecidedImgsURLsAtom, classifiedAtom } from '../../store/data';
+import { useEffect } from 'react';
 
 export default function PredictionGallery() {
   const [undecidedImgsURLs, setUndecidedImgsURLs] = useAtom(undecidedImgsURLsAtom);

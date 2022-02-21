@@ -7,7 +7,8 @@ export default async function classification(
   types,
   setClassifieds,
   setUndecidedImgsURLs,
-  setDecidedImgsURLs
+  setDecidedImgsURLs,
+  setTaskFinished
 ) {
   let imgs = generateImgs(fileURLs);
 
@@ -37,10 +38,6 @@ export default async function classification(
     classifier.predictClass(xlogits).then((result) => {
       classifiedResult.push({ ...result });
     });
-  }
-
-  for (let i = 0; i < classifiedResult.length; i++) {
-    classifiedResult[i]['url'] = undecidedImgsURLs[i];
   }
 
   console.log(classifiedResult);
