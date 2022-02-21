@@ -10,11 +10,3 @@ _cluster.ai_ is an out-of-the-box machine learning app for solving simple machin
 2. Tag images. Leave those you want to classify untouched.
 3. Click `train`.
 4. Click `predict` to see the result.
-
-## To–dos
-
-- [ ] Loading UI of training.
-- [ ] Github button.
-- [ ] Implement `clear`.
-- [ ] Better image card UI.
-- [ ] Persistent storage.
