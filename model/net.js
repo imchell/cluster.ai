@@ -8,8 +8,9 @@ export default async function classification(
   setClassifieds,
   setUndecidedImgsURLs,
   setDecidedImgsURLs,
-  setTaskFinished
+  setPending
 ) {
+  setPending(true);
   let imgs = generateImgs(fileURLs);
 
   const classifier = knnClassifier.create();
@@ -49,6 +50,7 @@ export default async function classification(
       setDecidedImgsURLs(decidedImgsURLs);
       setUndecidedImgsURLs(undecidedImgsURLs);
       console.log('success');
+      setPending(false);
     })
     .catch((e) => {
       console.log(e);

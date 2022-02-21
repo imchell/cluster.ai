@@ -17,6 +17,7 @@ import {
   decidedImgsURLsAtom,
   undecidedImgsURLsAtom,
   taskFinishedAtom,
+  pendingAtom,
 } from '../../store/data';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
@@ -35,6 +36,7 @@ export default function PageSwitcher() {
   const [undecidedImgsURLs, setUndecidedImgsURLs] = useAtom(undecidedImgsURLsAtom);
   const [decidedImgsURLs, setDecidedImgsURLs] = useAtom(decidedImgsURLsAtom);
   const [taskFinished, setTaskFinished] = useAtom(taskFinishedAtom);
+  const [pending, setPending] = useAtom(pendingAtom);
 
   // const theme = useMantineTheme();
 
@@ -51,7 +53,7 @@ export default function PageSwitcher() {
               setClassifieds,
               setUndecidedImgsURLs,
               setDecidedImgsURLs,
-              setTaskFinished
+              setPending
             )
           }
           radius="md"

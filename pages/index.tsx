@@ -8,13 +8,17 @@ import {
   Text,
   useMantineTheme,
   Image,
+  LoadingOverlay,
 } from '@mantine/core';
 import PageSwitcher from './components/PageSwitcher';
 import Display from './components/FileDisplay';
+import { useAtom } from 'jotai';
+import { pendingAtom } from '../store/data';
 
 export default function HomePage() {
   const [opened, setOpened] = useState(false);
   const theme = useMantineTheme();
+  const [pending, setPending] = useAtom(pendingAtom);
 
   return (
     <AppShell
@@ -35,6 +39,10 @@ export default function HomePage() {
         </Navbar>
       }
     >
+      <LoadingOverlay
+        visible={pending}
+        loaderProps={{ color: theme.colors.operations[3], variant: 'bars' }}
+      />
       <Display />
     </AppShell>
   );

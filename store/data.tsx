@@ -8,3 +8,4 @@ export const classifiedAtom = atom([] as Array<{ label: string }>);
 export const undecidedImgsURLsAtom = atom([] as string[]);
 export const decidedImgsURLsAtom = atom([] as string[]);
 export const taskFinishedAtom = atom(false);
+export const pendingAtom = atom(false);
