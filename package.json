@@ -30,6 +30,7 @@
     "@tensorflow/tfjs-backend-cpu": "^3.13.0",
     "@tensorflow/tfjs-backend-webgl": "^3.13.0",
     "dayjs": "^1.10.7",
+    "feather-icons": "^4.28.0",
     "jotai": "^1.6.0",
     "next": "12.0.7",
     "prism-react-renderer": "^1.2.1",

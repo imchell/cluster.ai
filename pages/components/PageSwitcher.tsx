@@ -19,6 +19,7 @@ import {
   taskFinishedAtom,
   pendingAtom,
   decidedImgsTypesAtom,
+  errorAtom,
 } from '../../store/data';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
@@ -39,6 +40,7 @@ export default function PageSwitcher() {
   const [taskFinished, setTaskFinished] = useAtom(taskFinishedAtom);
   const [pending, setPending] = useAtom(pendingAtom);
   const [decidedImgsTypes, setDecidedImgsTypes] = useAtom(decidedImgsTypesAtom);
+  const [error, setError] = useAtom(errorAtom);
 
   // const theme = useMantineTheme();
 
@@ -57,7 +59,8 @@ export default function PageSwitcher() {
               setDecidedImgsURLs,
               setPending,
               setTaskFinished,
-              setDecidedImgsTypes
+              setDecidedImgsTypes,
+              setError
             )
           }
           radius="md"

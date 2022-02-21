@@ -10,7 +10,8 @@ export default async function classification(
   setDecidedImgsURLs,
   setPending,
   setTaskFinished,
-  setDecidedImgsTypes
+  setDecidedImgsTypes,
+  setError
 ) {
   setPending(true);
   let imgs = generateImgs(fileURLs);
@@ -60,6 +61,7 @@ export default async function classification(
     })
     .catch((e) => {
       console.log(e);
+      setError(true);
     });
 }
 
