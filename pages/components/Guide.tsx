@@ -14,8 +14,7 @@ export default function Guide() {
             <List type="order" style={{ color: theme.colors.operations[3] }}>
               <List.Item>drop your images here</List.Item>
               <List.Item>tag images and leave some untagged</List.Item>
-              <List.Item>train and wait</List.Item>
-              <List.Item>click predict to get results for those untagged</List.Item>
+              <List.Item>click predict and wait</List.Item>
             </List>
           </Text>
         </Center>

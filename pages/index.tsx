@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   AppShell,
   Burger,
@@ -25,6 +25,10 @@ export default function HomePage() {
   const theme = useMantineTheme();
   const [pending, setPending] = useAtom(pendingAtom);
   const [error, setError] = useAtom(errorAtom);
+
+  useEffect(() => {
+    setPending(false);
+  }, [error]);
 
   return (
     <AppShell

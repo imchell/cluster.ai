@@ -1,4 +1,4 @@
-import { Grid, Image, Text } from '@mantine/core';
+import { Grid, Image, Text, Space, useMantineTheme } from '@mantine/core';
 import { useRef, useEffect } from 'react';
 import ImageCard from './ImageCard';
 import { filesAtom, typesAtom, fileURLsAtom } from '../../store/data';
@@ -8,6 +8,8 @@ export default function Gallery() {
   const [files, setFiles] = useAtom(filesAtom);
   const [types, setTypes] = useAtom(typesAtom);
   const [fileURLs, setFileURLs] = useAtom(fileURLsAtom);
+
+  const theme = useMantineTheme();
 
   useEffect(() => {
     setTypes(Array(files.length).fill('undecided'));
@@ -20,13 +22,20 @@ export default function Gallery() {
   }, [files]);
 
   return (
-    <Grid>
-      {fileURLs.map((url, index) => (
-        <Grid.Col lg={2} md={3} sm={4} xs={6} key={index}>
-          <ImageCard url={url} index={index} />
-        </Grid.Col>
-      ))}
-    </Grid>
+    <>
+      <Text size="xl" weight={700} color={theme.colors.operations[3]}>
+        {`Tag your images.
+        Leave the ones you want to predicate untagged.`}
+      </Text>
+      <Space h="md" />
+      <Grid>
+        {fileURLs.map((url, index) => (
+          <Grid.Col lg={2} md={3} sm={4} xs={6} key={index}>
+            <ImageCard url={url} index={index} />
+          </Grid.Col>
+        ))}
+      </Grid>
+    </>
   );
 }
 
