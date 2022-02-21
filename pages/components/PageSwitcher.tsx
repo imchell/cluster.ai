@@ -23,6 +23,7 @@ import {
 } from '../../store/data';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
+import { FiGithub, FiCoffee, FiRotateCcw } from 'react-icons/fi';
 
 function handleClassificationResult(
   result: { classIndex: number; confidence: object; label: string; url: string },
@@ -111,6 +112,34 @@ export default function PageSwitcher() {
           })}
         >
           clear
+        </Button>
+      </Center>
+      <Space h="md" />
+      <Center>
+        <Button
+          leftIcon={<FiGithub />}
+          onClick={() => window.open('https://github.com/imchell/cluster.ai', '_blank')?.focus()}
+          radius="md"
+          size="md"
+          styles={(theme) => ({
+            root: {
+              backgroundColor: theme.colors.gray[8],
+              height: '40px',
+              top: '0px',
+              '&:hover': {
+                backgroundColor: theme.colors.gray[7],
+                top: '-6px',
+              },
+              '&:active': {
+                backgroundColor: theme.colors.gray[9],
+                top: '0px',
+              },
+              width: '90%',
+              transition: '0.2s',
+            },
+          })}
+        >
+          GitHub
         </Button>
       </Center>
     </>
