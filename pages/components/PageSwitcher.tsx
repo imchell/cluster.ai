@@ -24,6 +24,7 @@ import {
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 import { FiGithub, FiCoffee, FiRotateCcw } from 'react-icons/fi';
+import { useMediaQuery } from 'react-responsive';
 
 function handleClassificationResult(
   result: { classIndex: number; confidence: object; label: string; url: string },
@@ -43,11 +44,11 @@ export default function PageSwitcher() {
   const [decidedImgsTypes, setDecidedImgsTypes] = useAtom(decidedImgsTypesAtom);
   const [error, setError] = useAtom(errorAtom);
 
-  // const theme = useMantineTheme();
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   return (
     <>
-      <Image src="/logo/logo.svg" height={60} />
+      {isMobile ? <></> : <Image src="/logo/logo.svg" height={60} />}
       <Space h={40} />
       <Center>
         <Button
