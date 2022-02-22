@@ -1,6 +1,8 @@
 # cluster.ai
 
-_cluster.ai_ is an out-of-the-box machine learning app for solving simple machine learning tasks.
+_cluster.ai_ is an out-of-the-box machine learning app for solving simple machine learning tasks. Inspirations from [_lobe.ai_](https://www.lobe.ai/).
+
+Check out the [demo](https://cluster-ai.vercel.app/) (there is currently no mobile version).
 
 ## How to use
 
@@ -13,4 +15,7 @@ _cluster.ai_ is an out-of-the-box machine learning app for solving simple machin
 
 ## In Development
 
-More features are on the way.
+1. Fix bugs
+2. Model exportation
+3. Better visualizations
+4. More template models
